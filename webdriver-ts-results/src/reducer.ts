@@ -75,7 +75,7 @@ const removeKeyedSuffix = (value: string) => {
   return value;
 };
 
-const mappedFrameworks = frameworks.map((f) => ({
+const mappedFrameworks = frameworks.map((f: any) => ({
   name: f.name,
   dir: f.dir,
   displayname: removeKeyedSuffix(f.name),

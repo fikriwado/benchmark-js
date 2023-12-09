@@ -3,7 +3,7 @@ import { DisplayMode, BenchmarkType, FrameworkType, CpuDurationMode } from "../C
 import CpuResultsTable from "./tables/CpuResultsTable";
 import MemResultsTable from "./tables/MemResultsTable";
 import StartupResultsTable from "./tables/StartupResultsTable";
-import { benchmarks } from "../results";
+import { benchmarks, frameworks } from "../results";
 import { useRootStore } from "../reducer";
 import SizeResultsTable from "./tables/SizeResultsTable";
 
@@ -51,7 +51,7 @@ const ResultTable = ({ type }: Props) => {
         <h1>{texts[type].label}</h1>
         <p>{texts[type].description}</p>
 
-        {cpuDurationMode === CpuDurationMode.Script && (
+        {/* {cpuDurationMode === CpuDurationMode.Script && (
           <h3>Warning: This is an experimental view that includes script duration only. Don&apos;t rely on those values yet and don&apos;t report them until they are official.
             Report bugs in issue <a href="https://github.com/krausest/js-framework-benchmark/issues/1233">1233</a>.
           </h3>
@@ -65,7 +65,8 @@ const ResultTable = ({ type }: Props) => {
           <h3>Warning: This is an experimental view that shows the difference between total duration and script duration. Don&apos;t rely on those values yet and don&apos;t report them until they are official.
             Report bugs in issue <a href="https://github.com/krausest/js-framework-benchmark/issues/1233">1233</a>.
           </h3>
-        )}
+        )} */}
+
         {displayMode === DisplayMode.BoxPlot ? (
           <>
             {benchmarks.length && (
@@ -88,7 +89,7 @@ const ResultTable = ({ type }: Props) => {
                 <CpuResultsTable currentSortKey={currentSortKey} sortBy={sortBy} data={data} />
                 <StartupResultsTable currentSortKey={currentSortKey} sortBy={sortBy} data={data} />
                 <MemResultsTable currentSortKey={currentSortKey} sortBy={sortBy} data={data} />
-                <SizeResultsTable currentSortKey={currentSortKey} sortBy={sortBy} data={data} />
+                {/* <SizeResultsTable currentSortKey={currentSortKey} sortBy={sortBy} data={data} /> */}
               </table>
             </div>
           </div>

@@ -72,7 +72,7 @@ const CpuResultsTable = ({ data, currentSortKey, sortBy }: Props) => {
               ))}
             </tr>
           </thead>
-          <thead>
+          {/* <thead>
             <tr>
               <th>Implementation notes</th>
               {data.frameworks.map((f) => (
@@ -87,8 +87,8 @@ const CpuResultsTable = ({ data, currentSortKey, sortBy }: Props) => {
                 </th>
               ))}
             </tr>
-          </thead>
-          <thead>
+          </thead> */}
+          {/* <thead>
             <tr>
               <th>Implementation link</th>
               {data.frameworks.map((f) => (
@@ -106,7 +106,7 @@ const CpuResultsTable = ({ data, currentSortKey, sortBy }: Props) => {
                 </th>
               ))}
             </tr>
-          </thead>
+          </thead> */}
           <tbody>
             {resultsCPU.results.map((resultsForBenchmark, benchIdx) => (
               <ValueResultRow

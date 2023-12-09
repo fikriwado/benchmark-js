@@ -300,10 +300,11 @@ export class ResultTableData {
   ) {
     const allowedIssues = new Set(knownIssues.map((issue) => issue.issue));
     const defaultFrameworks = [
-      "vanillajs-keyed",
-      "vanillajs-1-keyed",
-      "vanillajs-non-keyed",
-      "vanillajs-1-non-keyed",
+      "solid-v1.8.0-keyed",
+      // "vanillajs-keyed",
+      // "vanillajs-1-keyed",
+      // "vanillajs-non-keyed",
+      // "vanillajs-1-non-keyed",
     ];
 
     console.log("ResultTableData", allowedIssues, selectedCategories);

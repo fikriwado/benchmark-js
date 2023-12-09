@@ -44,8 +44,7 @@ const App = () => {
 
   const testEnvironmentInfo = (
     <p>
-      The benchmark was run on a MacBook Pro 14 (32 GB RAM, 8/14 Cores, OSX 14.1), Chrome 119.0.6045.105 (arm64) using
-      the puppeteer benchmark driver with reduced tracing.
+      The benchmark was run on a Asus Vivobook S430FN (8 GB RAM, Intel(R) Core(TM) i7-8565U, Windows 11 HSL 64-bit), Chrome 119.0.6045.105 using the puppeteer benchmark driver with reduced tracing.
     </p>
   );
 
@@ -58,14 +57,14 @@ const App = () => {
         We now open a new tab for each benchmark iteration, earlier runs reused the tab per benchmark and implementation. 
       </p>
       <p>
-        Starting with chrome 118 the benchmark uses a <a href="https://github.com/krausest/js-framework-benchmark/wiki/Computation-of-the-weighted-geometric-mean">weighted geometric mean </a> to compute the overall result.
+        Starting with chrome 119 the benchmark uses a <a href="https://github.com/krausest/js-framework-benchmark/wiki/Computation-of-the-weighted-geometric-mean">weighted geometric mean </a> to compute the overall result.
       </p>
 
       <main>
         <SelectionBar showDurationSelection={true} />
         <ResultTable type={FrameworkType.KEYED} />
-        <ResultTable type={FrameworkType.NON_KEYED} />
-        <KnownIssuesList></KnownIssuesList>
+        {/* <ResultTable type={FrameworkType.NON_KEYED} /> */}
+        {/* <KnownIssuesList></KnownIssuesList> */}
       </main>
     </>
   );

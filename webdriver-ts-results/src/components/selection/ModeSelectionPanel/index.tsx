@@ -25,14 +25,13 @@ const ModeSelecionPanel = ({ showDurationSelection }: Props) => {
           displayMode={displayMode}
           onChange={(value) => selectDisplayMode(value)}
         />
-
-    </div>
-        {showDurationSelection ? (
-          <DurationModeSelector
-            cpuDurationMode={cpuDurationMode}
-            onChange={(value) => selectCpuDurationMode(value)}
-          />
-        ) : null}
+      </div>
+      {/* {showDurationSelection ? (
+        <DurationModeSelector
+          cpuDurationMode={cpuDurationMode}
+          onChange={(value) => selectCpuDurationMode(value)}
+        />
+      ) : null} */}
     </>
   );
 };
