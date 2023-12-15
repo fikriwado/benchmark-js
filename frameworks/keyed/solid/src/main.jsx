@@ -1,5 +1,6 @@
 import { createSignal, createSelector, batch } from 'solid-js';
 import { render } from 'solid-js/web';
+import { vConfig } from "../../../../webdriver-ts/src/volume-config.ts";
 
 let idCounter = 1;
 const adjectives = ["pretty", "large", "big", "small", "tall", "short", "long", "handsome", "plain", "quaint", "clean", "elegant", "easy", "angry", "crazy", "helpful", "mushy", "odd", "unsightly", "adorable", "important", "inexpensive", "cheap", "expensive", "fancy"],
@@ -25,12 +26,14 @@ const Button = ({ id, text, fn }) =>
     <button id={ id } class='btn btn-primary btn-block' type='button' onClick={ fn }>{ text }</button>
   </div>
 
+const volume = vConfig.env.volume
+
 const App = () => {
   const [data, setData] = createSignal([]),
     [selected, setSelected] = createSignal(null),
     run = () => setData(buildData(1000)),
-    runLots = () => setData(buildData(10000)),
-    add = () => setData(d => [...d, ...buildData(1000)]),
+    runLots = () => setData(buildData(volume)),
+    add = () => setData(d => [...d, ...buildData(volume)]),
     update = () => batch(() => {
       for(let i = 0, d = data(), len = d.length; i < len; i += 10)
         d[i].setLabel(l => l + ' !!!');
@@ -39,8 +42,8 @@ const App = () => {
       const d = data().slice();
       if (d.length > 998) {
         let tmp = d[1];
-        d[1] = d[998];
-        d[998] = tmp;
+        d[1] = d[d.length-2];
+        d[d.length-2] = tmp;
         setData(d);
       }
     },
@@ -56,8 +59,8 @@ const App = () => {
       <div class='col-md-6'><h1>SolidJS Keyed</h1></div>
       <div class='col-md-6'><div class='row'>
         <Button id='run' text='Create 1,000 rows' fn={ run } />
-        <Button id='runlots' text='Create 10,000 rows' fn={ runLots } />
-        <Button id='add' text='Append 1,000 rows' fn={ add } />
+        <Button id='runlots' text={`Create ${volume.toLocaleString()} rows`} fn={ runLots } />
+        <Button id='add' text={`Append ${volume.toLocaleString()} rows`} fn={ add } />
         <Button id='update' text='Update every 10th row' fn={ update } />
         <Button id='clear' text='Clear' fn={ clear } />
         <Button id='swaprows' text='Swap Rows' fn={ swapRows } />

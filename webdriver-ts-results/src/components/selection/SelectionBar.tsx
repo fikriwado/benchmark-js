@@ -1,8 +1,8 @@
 import React from "react";
-import BenchmarkSelector from "./BenchmarkSelector";
-import FrameworkSelector from "./FrameworkSelector";
+// import BenchmarkSelector from "./BenchmarkSelector";
+// import FrameworkSelector from "./FrameworkSelector";
 import ModeSelecionPanel from "./ModeSelectionPanel";
-import CopyPasteSelection from "./CopyPasteSelection";
+// import CopyPasteSelection from "./CopyPasteSelection";
 
 interface Props {
   showDurationSelection: boolean;

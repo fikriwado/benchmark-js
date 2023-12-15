@@ -159,28 +159,28 @@ export const benchRemove = new (class extends CPUBenchmarkPlaywright {
   }
 })();
 
-export const benchRunBig = new (class extends CPUBenchmarkPlaywright {
-  constructor() {
-    super(cpuBenchmarkInfos[Benchmark._07]);
-  }
-  async init(browser: Browser, page: Page) {
-    await checkElementExists(page, "#run");
-    for (let i = 0; i < config.WARMUP_COUNT; i++) {
-      await clickElement(page, "#run");
-      await checkElementContainsText(page, "tbody>tr:nth-of-type(1)>td:nth-of-type(1)", (i*1000+1).toFixed());
-      await clickElement(page, "#clear");
-      await checkElementNotExists(page, "tbody>tr:nth-of-type(1000)>td:nth-of-type(1)");
-    }
-  }
-  async run(browser: Browser, page: Page) {
-    await clickElement(page, "#runlots");
-    await checkElementExists(page, "tbody>tr:nth-of-type(10000)>td:nth-of-type(2)>a");
-  }
-})();
+// export const benchRunBig = new (class extends CPUBenchmarkPlaywright {
+//   constructor() {
+//     super(cpuBenchmarkInfos[Benchmark._07]);
+//   }
+//   async init(browser: Browser, page: Page) {
+//     await checkElementExists(page, "#run");
+//     for (let i = 0; i < config.WARMUP_COUNT; i++) {
+//       await clickElement(page, "#run");
+//       await checkElementContainsText(page, "tbody>tr:nth-of-type(1)>td:nth-of-type(1)", (i*1000+1).toFixed());
+//       await clickElement(page, "#clear");
+//       await checkElementNotExists(page, "tbody>tr:nth-of-type(1000)>td:nth-of-type(1)");
+//     }
+//   }
+//   async run(browser: Browser, page: Page) {
+//     await clickElement(page, "#runlots");
+//     await checkElementExists(page, "tbody>tr:nth-of-type(10000)>td:nth-of-type(2)>a");
+//   }
+// })();
   
 export const benchAppendToManyRows = new (class extends CPUBenchmarkPlaywright {
   constructor() {
-    super(cpuBenchmarkInfos[Benchmark._08]);
+    super(cpuBenchmarkInfos[Benchmark._07]);
   }
   async init(browser: Browser, page: Page) {
     await checkElementExists(page, "#run");
@@ -201,7 +201,7 @@ export const benchAppendToManyRows = new (class extends CPUBenchmarkPlaywright {
 
 export const benchClear = new (class extends CPUBenchmarkPlaywright {
   constructor() {
-    super(cpuBenchmarkInfos[Benchmark._09]);
+    super(cpuBenchmarkInfos[Benchmark._08]);
   }
   async init(browser: Browser, page: Page) {
     await checkElementExists(page, "#run");
@@ -245,19 +245,6 @@ export const benchRunMemory = new (class extends MemBenchmarkPlaywright {
   }
 })();
 
-export const benchRun10KMemory = new (class extends MemBenchmarkPlaywright {
-  constructor() {
-    super(memBenchmarkInfos[Benchmark._26]);
-  }
-  async init(browser: Browser, page: Page) {
-    await checkElementExists(page, "#runlots");
-  }
-  async run(browser: Browser, page: Page) {
-    await clickElement(page, "#runlots");
-    await checkElementExists(page, "tbody>tr:nth-of-type(10000)>td:nth-of-type(2)>a");
-  }
-})();
-
 export const benchUpdate5Memory = new (class extends MemBenchmarkPlaywright {
   constructor() {
     super(memBenchmarkInfos[Benchmark._23]);
@@ -291,7 +278,7 @@ export const benchUpdate5Memory = new (class extends MemBenchmarkPlaywright {
 
 export const benchCreateClear5Memory = new (class extends MemBenchmarkPlaywright {
   constructor() {
-    super(memBenchmarkInfos[Benchmark._25]);
+    super(memBenchmarkInfos[Benchmark._24]);
   }
   async init(browser: Browser, page: Page) {
     await checkElementExists(page, "#run");
@@ -313,12 +300,12 @@ export const benchmarks = [
    benchSelect, 
    benchSwapRows, 
    benchRemove, 
-   benchRunBig, 
+  //  benchRunBig, 
    benchAppendToManyRows, 
    benchClear, 
    benchReadyMemory, 
    benchRunMemory, 
-   benchRun10KMemory,
+  //  benchRun10KMemory,
    benchUpdate5Memory,
   //  benchReplace5Memory, 
    benchCreateClear5Memory,

@@ -248,28 +248,28 @@ export const benchRemove = new (class extends CPUBenchmarkWebdriver {
   }
 })();
 
-export const benchRunBig = new (class extends CPUBenchmarkWebdriver {
-  constructor() {
-    super(cpuBenchmarkInfos[Benchmark._07]);
-  }
-  async init(driver: WebDriver) {
-    await testElementLocatedById(driver, "run", SHORT_TIMEOUT, true);
-    for (let i = 0; i < config.WARMUP_COUNT; i++) {
-      await clickElementById(driver, "run", true);
-      await testTextContains(driver, "//tbody/tr[1]/td[1]", (i * 1000 + 1).toFixed(), config.TIMEOUT, false);
-      await clickElementById(driver, "clear", true);
-      await testElementNotLocatedByXPath(driver, "//tbody/tr[1]", config.TIMEOUT, false);
-    }
-  }
-  async run(driver: WebDriver) {
-    await measureClickElementById(driver, "runlots", true);
-    await testElementLocatedByXpath(driver, "//tbody/tr[10000]/td[2]/a", config.TIMEOUT, false);
-  }
-})();
+// export const benchRunBig = new (class extends CPUBenchmarkWebdriver {
+//   constructor() {
+//     super(cpuBenchmarkInfos[Benchmark._07]);
+//   }
+//   async init(driver: WebDriver) {
+//     await testElementLocatedById(driver, "run", SHORT_TIMEOUT, true);
+//     for (let i = 0; i < config.WARMUP_COUNT; i++) {
+//       await clickElementById(driver, "run", true);
+//       await testTextContains(driver, "//tbody/tr[1]/td[1]", (i * 1000 + 1).toFixed(), config.TIMEOUT, false);
+//       await clickElementById(driver, "clear", true);
+//       await testElementNotLocatedByXPath(driver, "//tbody/tr[1]", config.TIMEOUT, false);
+//     }
+//   }
+//   async run(driver: WebDriver) {
+//     await measureClickElementById(driver, "runlots", true);
+//     await testElementLocatedByXpath(driver, "//tbody/tr[10000]/td[2]/a", config.TIMEOUT, false);
+//   }
+// })();
 
 export const benchAppendToManyRows = new (class extends CPUBenchmarkWebdriver {
   constructor() {
-    super(cpuBenchmarkInfos[Benchmark._08]);
+    super(cpuBenchmarkInfos[Benchmark._07]);
   }
   async init(driver: WebDriver) {
     await testElementLocatedById(driver, "run", SHORT_TIMEOUT, true);
@@ -290,7 +290,7 @@ export const benchAppendToManyRows = new (class extends CPUBenchmarkWebdriver {
 
 export const benchClear = new (class extends CPUBenchmarkWebdriver {
   constructor() {
-    super(cpuBenchmarkInfos[Benchmark._09]);
+    super(cpuBenchmarkInfos[Benchmark._08]);
   }
   async init(driver: WebDriver) {
     await testElementLocatedById(driver, "run", SHORT_TIMEOUT, true);
@@ -316,7 +316,7 @@ export const benchmarks = [
   benchSelect, 
   benchSwapRows, 
   benchRemove, 
-  benchRunBig, 
+  // benchRunBig, 
   benchAppendToManyRows, 
   benchClear, 
 ];

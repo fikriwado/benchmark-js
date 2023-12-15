@@ -24,6 +24,7 @@ import { StartupBenchmarkResult } from "./benchmarksLighthouse.js";
 import { writeResults } from "./writeResults.js";
 import { PlausibilityCheck } from "./timeline.js";
 import { SizeBenchmarkResult } from "./benchmarksSize.js";
+import { vConfig } from "./volume-config.js";
 
 function forkAndCallBenchmark(
   framework: FrameworkData,
@@ -401,7 +402,7 @@ async function main() {
     numIterationsForStartupBenchmark: config.NUM_ITERATIONS_FOR_BENCHMARK_STARTUP,
     numIterationsForSizeBenchmark: config.NUM_ITERATIONS_FOR_BENCHMARK_SIZE,
     batchSize: 1,
-    resultsDirectory: "results",
+    resultsDirectory: `results/${vConfig.env.volume.toString().slice(0,2)}k`,
     tracesDirectory: "traces",
     allowThrottling: !args.nothrottling,
   };

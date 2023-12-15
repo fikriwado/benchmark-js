@@ -1,16 +1,18 @@
 <script setup>
 import { ref, shallowRef } from 'vue'
 import { buildData } from './data'
+import { vConfig } from "../../../../webdriver-ts/src/volume-config.ts";
 
 const selected = ref()
 const rows = shallowRef([])
+const volume = vConfig.env.volume
 
 function setRows(update = rows.value.slice()) {
   rows.value = update
 }
 
 function add() {
-  rows.value = rows.value.concat(buildData(1000))
+  rows.value = rows.value.concat(buildData(volume))
 }
 
 function remove(id) {
@@ -39,7 +41,7 @@ function update() {
 }
 
 function runLots() {
-  setRows(buildData(10000))
+  setRows(buildData(volume))
   selected.value = undefined
 }
 
@@ -52,9 +54,9 @@ function swapRows() {
   const _rows = rows.value
   if (_rows.length > 998) {
     const d1 = _rows[1]
-    const d998 = _rows[998]
-    _rows[1] = d998
-    _rows[998] = d1
+    const d2last = _rows[_rows.length-2]
+    _rows[1] = d2last
+    _rows[_rows.length-2] = d1
     setRows()
   }
 }
@@ -85,7 +87,7 @@ function swapRows() {
               id="runlots"
               @click="runLots"
             >
-              Create 10,000 rows
+              Create {{ volume.toLocaleString() }} rows
             </button>
           </div>
           <div class="col-sm-6 smallpad">
@@ -95,7 +97,7 @@ function swapRows() {
               id="add"
               @click="add"
             >
-              Append 1,000 rows
+              Append {{ volume.toLocaleString() }} rows
             </button>
           </div>
           <div class="col-sm-6 smallpad">

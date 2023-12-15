@@ -226,7 +226,7 @@ const preInitialState: State = {
   selectedBenchmarks: allBenchmarks,
   selectedFrameworks: allFrameworks,
   sortKey: SORT_BY_GEOMMEAN_CPU,
-  displayMode: DisplayMode.DisplayMedian,
+  displayMode: DisplayMode.DisplayMean,
   resultTables: {
     [FrameworkType.KEYED]: undefined,
     [FrameworkType.NON_KEYED]: undefined,
