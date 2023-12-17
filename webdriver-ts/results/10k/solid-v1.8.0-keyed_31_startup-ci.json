@@ -1,0 +1,1 @@
+{"framework":"solid-v1.8.0-keyed","keyed":true,"benchmark":"31_startup-ci","type":"startup","values":{"DEFAULT":{"min":2064.896,"max":2064.896,"median":2064.896,"mean":2064.896,"stddev":null,"values":[2064.896]}}}

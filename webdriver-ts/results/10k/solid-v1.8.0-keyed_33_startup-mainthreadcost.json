@@ -1,0 +1,1 @@
+{"framework":"solid-v1.8.0-keyed","keyed":true,"benchmark":"33_startup-mainthreadcost","type":"startup","values":{"DEFAULT":{"min":437.368,"max":437.368,"median":437.368,"mean":437.368,"stddev":null,"values":[437.368]}}}

@@ -1,0 +1,1 @@
+{"framework":"vue-v3.3.6-keyed","keyed":true,"benchmark":"23_update5-memory","type":"memory","values":{"DEFAULT":{"min":31.536002159118652,"max":31.536002159118652,"median":31.536002159118652,"mean":31.536002159118652,"stddev":null,"values":[31.536002159118652]}}}

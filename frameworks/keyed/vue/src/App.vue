@@ -64,100 +64,39 @@ function swapRows() {
 
 <template>
   <div class="jumbotron">
-    <div class="row">
-      <div class="col-md-6">
-        <h1>Vue.js 3 (keyed)</h1>
-      </div>
-      <div class="col-md-6">
-        <div class="row">
-          <div class="col-sm-6 smallpad">
-            <button
-              type="button"
-              class="btn btn-primary btn-block"
-              id="run"
-              @click="run"
-            >
-              Create 1,000 rows
-            </button>
-          </div>
-          <div class="col-sm-6 smallpad">
-            <button
-              type="button"
-              class="btn btn-primary btn-block"
-              id="runlots"
-              @click="runLots"
-            >
-              Create {{ volume.toLocaleString() }} rows
-            </button>
-          </div>
-          <div class="col-sm-6 smallpad">
-            <button
-              type="button"
-              class="btn btn-primary btn-block"
-              id="add"
-              @click="add"
-            >
-              Append {{ volume.toLocaleString() }} rows
-            </button>
-          </div>
-          <div class="col-sm-6 smallpad">
-            <button
-              type="button"
-              class="btn btn-primary btn-block"
-              id="update"
-              @click="update"
-            >
-              Update every 10th row
-            </button>
-          </div>
-          <div class="col-sm-6 smallpad">
-            <button
-              type="button"
-              class="btn btn-primary btn-block"
-              id="clear"
-              @click="clear"
-            >
-              Clear
-            </button>
-          </div>
-          <div class="col-sm-6 smallpad">
-            <button
-              type="button"
-              class="btn btn-primary btn-block"
-              id="swaprows"
-              @click="swapRows"
-            >
-              Swap Rows
-            </button>
-          </div>
-        </div>
-      </div>
+    <h1 class="title fw-bold">Test Case Framework</h1>
+    <p class="desc">“<span class="fw-bold">VueJS</span> is ready to test”</p>
+    <div class="test-case-wrapper">
+        <button type="button" class="btn" id="run" @click="run">Create 1,000 rows</button>
+        <button type="button" class="btn" id="runlots" @click="runLots">Create {{ volume.toLocaleString() }} rows</button>
+        <button type="button" class="btn" id="add" @click="add">Append {{ volume.toLocaleString() }} rows</button>
+        <button type="button" class="btn" id="update" @click="update">Update every 10th row</button>
+        <button type="button" class="btn" id="swaprows" @click="swapRows">Swap Rows</button>
+        <button type="button" class="btn" id="clear" @click="clear">Clear</button>
     </div>
   </div>
-  <table class="table table-hover table-striped test-data">
-    <tbody>
-      <tr
-        v-for="{ id, label } of rows"
-        :key="id"
-        :class="{ danger: id === selected }"
-        :data-label="label"
-        v-memo="[label, id === selected]"
-      >
-        <td class="col-md-1">{{ id }}</td>
-        <td class="col-md-4">
-          <a @click="select(id)">{{ label }}</a>
-        </td>
-        <td class="col-md-1">
-          <a @click="remove(id)">
-            <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-          </a>
-        </td>
-        <td class="col-md-6"></td>
-      </tr>
-    </tbody>
-  </table>
-  <span
-    class="preloadicon glyphicon glyphicon-remove"
-    aria-hidden="true"
-  ></span>
+  <div class="table-wrapper" v-if="rows.length > 0">
+    <table class="table table-hover table-striped test-data">
+      <tbody>
+        <tr
+          v-for="{ id, label } of rows"
+          :key="id"
+          :class="{ danger: id === selected }"
+          :data-label="label"
+          v-memo="[label, id === selected]"
+        >
+          <td>{{ id }}</td>
+          <td>
+            <a @click="select(id)">{{ label }}</a>
+          </td>
+          <td>
+            <a @click="remove(id)">
+              <svg xmlns="http://www.w3.org/2000/svg" height="16" width="11" viewBox="0 0 352 512"><path d="M242.7 256l100.1-100.1c12.3-12.3 12.3-32.2 0-44.5l-22.2-22.2c-12.3-12.3-32.2-12.3-44.5 0L176 189.3 75.9 89.2c-12.3-12.3-32.2-12.3-44.5 0L9.2 111.5c-12.3 12.3-12.3 32.2 0 44.5L109.3 256 9.2 356.1c-12.3 12.3-12.3 32.2 0 44.5l22.2 22.2c12.3 12.3 32.2 12.3 44.5 0L176 322.7l100.1 100.1c12.3 12.3 32.2 12.3 44.5 0l22.2-22.2c12.3-12.3 12.3-32.2 0-44.5L242.7 256z"/></svg>
+            </a>
+          </td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </template>

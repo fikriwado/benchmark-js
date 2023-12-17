@@ -142,7 +142,7 @@ export const benchRemove = new (class extends CPUBenchmarkPlaywright {
     await checkElementExists(page, "tbody>tr:nth-of-type(1000)>td:nth-of-type(1)");
       for (let i = 0; i < config.WARMUP_COUNT; i++) {
           await checkElementContainsText(page, `tbody>tr:nth-of-type(${config.WARMUP_COUNT - i + 4})>td:nth-of-type(1)`, (config.WARMUP_COUNT - i + 4).toString());
-          await clickElement(page, `tbody>tr:nth-of-type(${config.WARMUP_COUNT - i + 4})>td:nth-of-type(3)>a>span:nth-of-type(1)`);
+          await clickElement(page, `tbody>tr:nth-of-type(${config.WARMUP_COUNT - i + 4})>td:nth-of-type(3)>a`);
           await checkElementContainsText(page, `tbody>tr:nth-of-type(${config.WARMUP_COUNT - i + 4})>td:nth-of-type(1)`, "10");
       }
       await checkElementContainsText(page, `tbody>tr:nth-of-type(5)>td:nth-of-type(1)`, "10");
@@ -150,11 +150,11 @@ export const benchRemove = new (class extends CPUBenchmarkPlaywright {
 
       // Click on a row the second time
       await checkElementContainsText(page, `tbody>tr:nth-of-type(6)>td:nth-of-type(1)`, "11");
-      await clickElement(page, `tbody>tr:nth-of-type(6)>td:nth-of-type(3)>a>span:nth-of-type(1)`);
+      await clickElement(page, `tbody>tr:nth-of-type(6)>td:nth-of-type(3)>a`);
       await checkElementContainsText(page, `tbody>tr:nth-of-type(6)>td:nth-of-type(1)`, "12");
   }
   async run(browser: Browser, page: Page) {
-    await clickElement(page, `tbody>tr:nth-of-type(4)>td:nth-of-type(3)>a>span:nth-of-type(1)`);
+    await clickElement(page, `tbody>tr:nth-of-type(4)>td:nth-of-type(3)>a`);
     await checkElementContainsText(page, `tbody>tr:nth-of-type(4)>td:nth-of-type(1)`, "10");
   }
 })();
