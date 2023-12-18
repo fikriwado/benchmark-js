@@ -11,7 +11,7 @@ export async function checkElementNotExists(page: Page, selector: string) {
     }
     console.log("checkElementNotExists element found");
     await sel.dispose();
-    await page.waitForTimeout(k < 3 ? 10 : 1000);
+    await page.waitForTimeout(k < 5 ? 10 : 1000);
   }
   console.log("checkElementNotExists waited " + (Date.now() - start) + " but no luck");
   throw `checkElementNotExists failed for ${selector};`;
@@ -23,10 +23,11 @@ export async function checkElementExists(page: Page, selector: string) {
     let sel = await page.$(selector);
     if (sel) {
       await sel.dispose();
+      console.log(`SUCCESS: checkElementExists element ${selector} found`);
       return sel;
     }
     console.log(`checkElementExists element ${selector} not found`);
-    await page.waitForTimeout(k < 3 ? 10 : 1000);
+    await page.waitForTimeout(k < 5 ? 10 : 1000);
   }
   console.log("checkElementExists waited " + (Date.now() - start) + " but no luck");
   throw `checkElementExists failed for ${selector};`;
@@ -53,7 +54,7 @@ export async function checkElementContainsText(page: Page, selector: string, exp
         if (result) return;
       }
     }
-    await page.waitForTimeout(k < 3 ? 10 : 1000);
+    await page.waitForTimeout(k < 5 ? 10 : 1000);
   }
   console.log("checkElementExists waited " + (Date.now() - start) + " but no luck");
   throw `checkElementContainsText ${selector} failed. expected ${expectedText}, but was ${txt}`;
@@ -72,7 +73,7 @@ export async function checkElementHasClass(page: Page, selector: string, classNa
         if (result) return;
       }
     }
-    await page.waitForTimeout(k < 3 ? 10 : 1000);
+    await page.waitForTimeout(k < 5 ? 10 : 1000);
   }
   throw `checkElementHasClass ${selector} failed. expected ${className}, but was ${clazzes}`;
 }

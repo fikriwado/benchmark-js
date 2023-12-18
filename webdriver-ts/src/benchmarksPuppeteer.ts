@@ -17,7 +17,7 @@ import {
   checkElementExists,
   checkElementHasClass,
   checkElementNotExists,
-  clickElement,
+  clickElement
 } from "./puppeteerAccess.js";
 import { vConfig } from "./volume-config.js";
 
@@ -91,7 +91,7 @@ export const benchUpdate = new (class extends CPUBenchmarkPuppeteer {
   }
   async run(page: Page) {
     await clickElement(page, "pierce/#update");
-    await checkElementContainsText(page, `pierce/tbody>tr:nth-of-type(${volume-9})>td:nth-of-type(2)>a`, ' !!!'.repeat(3 + 1));
+    await checkElementContainsText(page, `pierce/tbody>tr:nth-of-type(${volume-9})>td:nth-of-type(2)>a`, ' !!!'.repeat(config.WARMUP_COUNT + 1));
   }
 })();
 
@@ -145,20 +145,20 @@ export const benchRemove = new (class extends CPUBenchmarkPuppeteer {
     await clickElement(page, "pierce/#runlots");
     await checkElementExists(page, `pierce/tbody>tr:nth-of-type(${volume})>td:nth-of-type(1)`);
     for (let i = 0; i < config.WARMUP_COUNT; i++) {
-        await checkElementContainsText(page, `pierce/tbody>tr:nth-of-type(${config.WARMUP_COUNT - i + 4})>td:nth-of-type(1)`, (config.WARMUP_COUNT - i + 4).toString());
-        await clickElement(page, `pierce/tbody>tr:nth-of-type(${config.WARMUP_COUNT - i + 4})>td:nth-of-type(3)>a`);
-        await checkElementContainsText(page, `pierce/tbody>tr:nth-of-type(${config.WARMUP_COUNT - i + 4})>td:nth-of-type(1)`, "10");
+      await checkElementContainsText(page, `pierce/tbody>tr:nth-of-type(${config.WARMUP_COUNT - i + 4})>td:nth-of-type(1)`, (config.WARMUP_COUNT - i + 4).toString());
+      await clickElement(page, `pierce/tbody>tr:nth-of-type(${config.WARMUP_COUNT - i + 4})>td:nth-of-type(4)>a`);
+      await checkElementContainsText(page, `pierce/tbody>tr:nth-of-type(${config.WARMUP_COUNT - i + 4})>td:nth-of-type(1)`, "10");
     }
     await checkElementContainsText(page, `pierce/tbody>tr:nth-of-type(5)>td:nth-of-type(1)`, "10");
     await checkElementContainsText(page, `pierce/tbody>tr:nth-of-type(4)>td:nth-of-type(1)`, "4");
 
     // Click on a row the second time
     await checkElementContainsText(page, `pierce/tbody>tr:nth-of-type(6)>td:nth-of-type(1)`, "11");
-    await clickElement(page, `pierce/tbody>tr:nth-of-type(6)>td:nth-of-type(3)>a`);
+    await clickElement(page, `pierce/tbody>tr:nth-of-type(6)>td:nth-of-type(4)>a`);
     await checkElementContainsText(page, `pierce/tbody>tr:nth-of-type(6)>td:nth-of-type(1)`, "12");
   }
   async run(page: Page) {
-    await clickElement(page, `pierce/tbody>tr:nth-of-type(4)>td:nth-of-type(3)>a`);
+    await clickElement(page, `pierce/tbody>tr:nth-of-type(4)>td:nth-of-type(4)>a`);
     await checkElementContainsText(page, `pierce/tbody>tr:nth-of-type(4)>td:nth-of-type(1)`, "10");
   }
 })();
@@ -243,7 +243,6 @@ export const benchUpdate5Memory = new (class extends MemBenchmarkPuppeteer {
     for (let i = 0; i < 5; i++) {
       await clickElement(page, "pierce/#update");
       await checkElementContainsText(page, `pierce/tbody>tr:nth-of-type(${volume-9})>td:nth-of-type(2)>a`, " !!!".repeat(i));
-
     }
   }
 })();
