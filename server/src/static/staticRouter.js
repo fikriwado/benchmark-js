@@ -31,6 +31,12 @@ async function routes(fastify) {
     prefix: "/css",
     decorateReply: false,
   });
+  
+  fastify.register(fastifyStatic, {
+    root: path.join(projectRootPath, "fonts"),
+    prefix: "/fonts",
+    decorateReply: false,
+  });
 
   fastify.register(fastifyStatic, {
     root: path.join(projectRootPath, "webdriver-ts-results"),

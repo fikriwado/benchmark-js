@@ -2,19 +2,19 @@
     font-family: 'Kanit';
     font-style: normal;
     font-weight: 700;
-    src: url("./fonts/Kanit-Bold.woff2") format('woff2');
+    src: url("../fonts/Kanit-Bold.woff2") format('woff2');
 }
 @font-face {
     font-family: 'Source Sans 3';
     font-style: normal;
     font-weight: 400;
-    src: url("./fonts/SourceSans3-Regular.woff2") format('woff2');
+    src: url("../fonts/SourceSans3-Regular.woff2") format('woff2');
 }
 @font-face {
     font-family: 'Source Sans 3';
     font-style: normal;
     font-weight: 700;
-    src: url("./fonts/SourceSans3-Bold.woff2") format('woff2');
+    src: url("../fonts/SourceSans3-Bold.woff2") format('woff2');
 }
 * {
     margin: 0;
