@@ -11,8 +11,8 @@ function setRows(update = rows.value.slice()) {
   rows.value = update
 }
 
-function add() {
-  rows.value = rows.value.concat(buildData(volume))
+async function add() {
+  rows.value = rows.value.concat(await buildData(volume))
 }
 
 function remove(id) {
@@ -27,21 +27,21 @@ function select(id) {
   selected.value = id
 }
 
-function run() {
-  setRows(buildData())
+async function run() {
+  setRows(await buildData())
   selected.value = undefined
 }
 
 function update() {
   const _rows = rows.value
   for (let i = 0; i < _rows.length; i += 10) {
-    _rows[i].label += ' !!!'
+    _rows[i].name += ' !!!'
   }
   setRows()
 }
 
-function runLots() {
-  setRows(buildData(volume))
+async function runLots() {
+  setRows(await buildData(volume))
   selected.value = undefined
 }
 
@@ -77,18 +77,27 @@ function swapRows() {
   </div>
   <div class="table-wrapper" v-if="rows.length > 0">
     <table class="table table-hover table-striped test-data">
+      <thead>
+        <tr>
+          <th>No</th>
+          <th>Name</th>
+          <th>E-mail</th>
+          <th colspan="2">Action</th>
+        </tr>
+      </thead>
       <tbody>
         <tr
-          v-for="{ id, label } of rows"
+          v-for="{ id, name, email } of rows"
           :key="id"
           :class="{ danger: id === selected }"
-          :data-label="label"
-          v-memo="[label, id === selected]"
+          :data-label="name"
+          v-memo="[name, id === selected]"
         >
           <td>{{ id }}</td>
           <td>
-            <a @click="select(id)">{{ label }}</a>
+            <a @click="select(id)">{{ name }}</a>
           </td>
+          <td>{{ email }}</td>
           <td>
             <a @click="remove(id)">
               <svg xmlns="http://www.w3.org/2000/svg" height="16" width="11" viewBox="0 0 352 512"><path d="M242.7 256l100.1-100.1c12.3-12.3 12.3-32.2 0-44.5l-22.2-22.2c-12.3-12.3-32.2-12.3-44.5 0L176 189.3 75.9 89.2c-12.3-12.3-32.2-12.3-44.5 0L9.2 111.5c-12.3 12.3-12.3 32.2 0 44.5L109.3 256 9.2 356.1c-12.3 12.3-12.3 32.2 0 44.5l22.2 22.2c12.3 12.3 32.2 12.3 44.5 0L176 322.7l100.1 100.1c12.3 12.3 32.2 12.3 44.5 0l22.2-22.2c12.3-12.3 12.3-32.2 0-44.5L242.7 256z"/></svg>

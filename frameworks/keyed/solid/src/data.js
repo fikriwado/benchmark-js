@@ -1,3 +1,5 @@
+import { createSignal } from 'solid-js';
+
 let ID = 1
 
 async function fetchUsers(limit = 1000) {
@@ -13,11 +15,14 @@ async function fetchUsers(limit = 1000) {
 export async function buildData(count = 1000) {
   const data = []
   const users = await fetchUsers(count)
-  for (let i = 0; i < count; i++)
+  for (let i = 0; i < count; i++) {
+    const [name, setName] = createSignal(users[i].name)
+    const [email] = createSignal(users[i].email)
     data.push({
       id: ID++,
-      name: users[i].name,
-      email: users[i].email
+      name, setName,
+      email
     })
+  }
   return data
 }

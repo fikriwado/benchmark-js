@@ -91,8 +91,11 @@ a { cursor: pointer; }
     width: 100%;
     border-spacing: 0;
 }
-.table-wrapper tr:nth-child(even) { background-color: #FBFBFC; }
-.table-wrapper tr.danger { background-color: #FFE5E5; }
+.table-wrapper tbody tr:nth-child(even) { background-color: #FBFBFC; }
+.table-wrapper tbody tr:hover { background-color: #F1F1F1; }
+.table-wrapper tbody tr.danger { background-color: #FFE5E5; }
+.table-wrapper th { text-align: left; }
+.table-wrapper th,
 .table-wrapper td {
     padding: 0 15px;
     height: 38px;
@@ -101,12 +104,16 @@ a { cursor: pointer; }
 }
 .table-wrapper td:nth-child(1),
 .table-wrapper td:nth-last-child(2) {
-    width: 50px;
-    max-width: 50px;
+    width: 80px;
+    max-width: 80px;
 }
 .table-wrapper td:nth-child(2) {
-    width: 500px;
-    max-width: 500px;
+    width: 400px;
+    max-width: 400px;
+}
+.table-wrapper td:nth-child(3) {
+    width: 450px;
+    max-width: 450px;
 }
 .table-wrapper td:nth-last-child(2) {
     text-align: center;
