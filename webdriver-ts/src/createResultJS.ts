@@ -10,6 +10,7 @@ import {
 import * as benchmarksLighthouse from "./benchmarksLighthouse.js";
 import * as benchmarksSize from "./benchmarksSize.js";
 import { BenchmarkOptions, config, initializeFrameworks, JsonResult } from "./common.js";
+import { vConfig } from "./volume-config.js";
 
 let args: any = yargs(process.argv)
   .usage(
@@ -42,7 +43,8 @@ let benchmarkOptions: BenchmarkOptions = {
   allowThrottling: !args.nothrottling,
 };
 
-let resultsDirectory = args.browser ? "./results_client_" + args.browser : "./results";
+const volume = vConfig.env.volume.toString()
+let resultsDirectory = args.browser ? "./results_client_" + args.browser : `./results/${volume.slice(0,2)}`;
 
 async function main() {
   let frameworks = await initializeFrameworks(benchmarkOptions);
