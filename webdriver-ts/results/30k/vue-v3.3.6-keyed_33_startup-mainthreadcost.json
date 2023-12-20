@@ -1,0 +1,1 @@
+{"framework":"vue-v3.3.6-keyed","keyed":true,"benchmark":"33_startup-mainthreadcost","type":"startup","values":{"DEFAULT":{"min":357.94800000000015,"max":357.94800000000015,"median":357.94800000000015,"mean":357.94800000000015,"stddev":null,"values":[357.94800000000015]}}}

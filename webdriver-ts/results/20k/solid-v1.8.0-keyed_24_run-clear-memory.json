@@ -1,0 +1,1 @@
+{"framework":"solid-v1.8.0-keyed","keyed":true,"benchmark":"24_run-clear-memory","type":"memory","values":{"DEFAULT":{"min":0.8009757995605469,"max":0.8009757995605469,"median":0.8009757995605469,"mean":0.8009757995605469,"stddev":null,"values":[0.8009757995605469]}}}

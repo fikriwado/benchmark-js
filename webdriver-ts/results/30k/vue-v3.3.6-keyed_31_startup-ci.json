@@ -1,0 +1,1 @@
+{"framework":"vue-v3.3.6-keyed","keyed":true,"benchmark":"31_startup-ci","type":"startup","values":{"DEFAULT":{"min":2281.4094999999998,"max":2281.4094999999998,"median":2281.4094999999998,"mean":2281.4094999999998,"stddev":null,"values":[2281.4094999999998]}}}

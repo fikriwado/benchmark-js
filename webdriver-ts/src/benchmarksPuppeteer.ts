@@ -71,7 +71,7 @@ export const benchReplaceAll = new (class extends CPUBenchmarkPuppeteer {
   }
   async run(page: Page) {
     await clickElement(page, "pierce/#runlots");
-    await checkElementContainsText(page, "pierce/tbody>tr:nth-of-type(1)>td:nth-of-type(1)", "50001");
+    await checkElementContainsText(page, "pierce/tbody>tr:nth-of-type(1)>td:nth-of-type(1)", (config.WARMUP_COUNT*volume+1).toFixed());
     await checkElementExists(page, `pierce/tbody>tr:nth-of-type(${volume})>td:nth-of-type(2)>a`);
   }
 })();
