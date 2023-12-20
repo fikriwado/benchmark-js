@@ -1,1 +1,1 @@
-{"framework":"solid-v1.8.0-keyed","keyed":true,"benchmark":"42_size-compressed","type":"size","values":{"DEFAULT":{"min":256.666015625,"max":256.666015625,"median":256.666015625,"mean":256.666015625,"stddev":null,"values":[256.666015625]}}}
+{"framework":"solid-v1.8.0-keyed","keyed":true,"benchmark":"42_size-compressed","type":"size","values":{"DEFAULT":{"min":254.4658203125,"max":254.4658203125,"median":254.4658203125,"mean":254.4658203125,"stddev":null,"values":[254.4658203125]}}}

@@ -1,1 +1,1 @@
-{"framework":"vue-v3.3.6-keyed","keyed":true,"benchmark":"23_update5-memory","type":"memory","values":{"DEFAULT":{"min":68.95390892028809,"max":68.95390892028809,"median":68.95390892028809,"mean":68.95390892028809,"stddev":null,"values":[68.95390892028809]}}}
+{"framework":"vue-v3.3.6-keyed","keyed":true,"benchmark":"23_update5-memory","type":"memory","values":{"DEFAULT":{"min":34.88477802276611,"max":34.88477802276611,"median":34.88477802276611,"mean":34.88477802276611,"stddev":null,"values":[34.88477802276611]}}}

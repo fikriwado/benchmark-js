@@ -44,7 +44,7 @@ let benchmarkOptions: BenchmarkOptions = {
 };
 
 const volume = vConfig.env.volume.toString()
-let resultsDirectory = args.browser ? "./results_client_" + args.browser : `./results/${volume.slice(0,2)}`;
+let resultsDirectory = args.browser ? "./results_client_" + args.browser : `./results/${volume.slice(0,2)}k`;
 
 async function main() {
   let frameworks = await initializeFrameworks(benchmarkOptions);

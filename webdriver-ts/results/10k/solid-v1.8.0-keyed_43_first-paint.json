@@ -1,1 +1,1 @@
-{"framework":"solid-v1.8.0-keyed","keyed":true,"benchmark":"43_first-paint","type":"size","values":{"DEFAULT":{"min":191.2,"max":191.2,"median":191.2,"mean":191.2,"stddev":null,"values":[191.2]}}}
+{"framework":"solid-v1.8.0-keyed","keyed":true,"benchmark":"43_first-paint","type":"size","values":{"DEFAULT":{"min":176.5,"max":176.5,"median":176.5,"mean":176.5,"stddev":null,"values":[176.5]}}}

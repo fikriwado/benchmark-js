@@ -1,1 +1,1 @@
-{"framework":"vue-v3.3.6-keyed","keyed":true,"benchmark":"33_startup-mainthreadcost","type":"startup","values":{"DEFAULT":{"min":352.19199999999995,"max":352.19199999999995,"median":352.19199999999995,"mean":352.19199999999995,"stddev":null,"values":[352.19199999999995]}}}
+{"framework":"vue-v3.3.6-keyed","keyed":true,"benchmark":"33_startup-mainthreadcost","type":"startup","values":{"DEFAULT":{"min":348.5720000000002,"max":348.5720000000002,"median":348.5720000000002,"mean":348.5720000000002,"stddev":null,"values":[348.5720000000002]}}}

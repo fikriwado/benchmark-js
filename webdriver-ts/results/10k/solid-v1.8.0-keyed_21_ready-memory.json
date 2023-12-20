@@ -1,1 +1,1 @@
-{"framework":"solid-v1.8.0-keyed","keyed":true,"benchmark":"21_ready-memory","type":"memory","values":{"DEFAULT":{"min":0.5687417984008789,"max":0.5687417984008789,"median":0.5687417984008789,"mean":0.5687417984008789,"stddev":null,"values":[0.5687417984008789]}}}
+{"framework":"solid-v1.8.0-keyed","keyed":true,"benchmark":"21_ready-memory","type":"memory","values":{"DEFAULT":{"min":0.5714902877807617,"max":0.5714902877807617,"median":0.5714902877807617,"mean":0.5714902877807617,"stddev":null,"values":[0.5714902877807617]}}}

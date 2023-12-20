@@ -1,1 +1,1 @@
-{"framework":"solid-v1.8.0-keyed","keyed":true,"benchmark":"31_startup-ci","type":"startup","values":{"DEFAULT":{"min":1534.664,"max":1534.664,"median":1534.664,"mean":1534.664,"stddev":null,"values":[1534.664]}}}
+{"framework":"solid-v1.8.0-keyed","keyed":true,"benchmark":"31_startup-ci","type":"startup","values":{"DEFAULT":{"min":1463.034,"max":1463.034,"median":1463.034,"mean":1463.034,"stddev":null,"values":[1463.034]}}}
