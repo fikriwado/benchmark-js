@@ -1,1 +1,1 @@
-{"framework":"solid-v1.8.0-keyed","keyed":true,"benchmark":"33_startup-mainthreadcost","type":"startup","values":{"DEFAULT":{"min":336.1000000000001,"max":336.1000000000001,"median":336.1000000000001,"mean":336.1000000000001,"stddev":null,"values":[336.1000000000001]}}}
+{"framework":"solid-v1.8.0-keyed","keyed":true,"benchmark":"33_startup-mainthreadcost","type":"startup","values":{"DEFAULT":{"min":327.56399999999996,"max":327.56399999999996,"median":327.56399999999996,"mean":327.56399999999996,"stddev":null,"values":[327.56399999999996]}}}
