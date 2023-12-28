@@ -124,9 +124,9 @@ export const benchSwapRows = new (class extends CPUBenchmarkPuppeteer {
       await clickElement(page, "pierce/#runlots");
       await checkElementExists(page, `pierce/tbody>tr:nth-of-type(${volume})>td:nth-of-type(1)`);
       for (let i = 0; i <= config.WARMUP_COUNT; i++) {
-      let text = i % 2 == 0 ? "2" : (volume-1).toString();
-          await clickElement(page, "pierce/#swaprows");
-          await checkElementContainsText(page, `pierce/tbody>tr:nth-of-type(${volume-1})>td:nth-of-type(1)`, text);
+        let text = i % 2 == 0 ? "2" : (volume-1).toString();
+        await clickElement(page, "pierce/#swaprows");
+        await checkElementContainsText(page, `pierce/tbody>tr:nth-of-type(${volume-1})>td:nth-of-type(1)`, text);
       }
   }
   async run(page: Page) {
@@ -174,7 +174,7 @@ export const benchAppendToManyRows = new (class extends CPUBenchmarkPuppeteer {
       await checkElementContainsText(page, "pierce/tbody>tr:nth-of-type(1)>td:nth-of-type(1)", (i*1000+1).toFixed());
       await clickElement(page, "pierce/#clear");
       await checkElementNotExists(page, "pierce/tbody>tr:nth-of-type(1000)>td:nth-of-type(1)");
-    }    
+    }
     await clickElement(page, "pierce/#run");
     await checkElementExists(page, "pierce/tbody>tr:nth-of-type(1000)>td:nth-of-type(1)");
   }
