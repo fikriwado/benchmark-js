@@ -16,7 +16,10 @@
     "isKeyed": "cross-env LANG=\"en_US.UTF-8\" node dist/isKeyed.js",
     "test": "vitest --run",
     "test:watch": "vitest",
-    "coverage": "vitest --run --coverage"
+    "coverage": "vitest --run --coverage",
+    "rebuildSolid": "cd ../frameworks/keyed/solid/ && npm run build-prod",
+    "rebuildVue": "cd ../frameworks/keyed/vue/ && npm run build-prod",
+    "rebuild": "npm run rebuildSolid && npm run rebuildVue && npm run compile"
   },
   "author": "",
   "license": "Apache-2.0",
