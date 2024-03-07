@@ -402,7 +402,7 @@ async function main() {
     numIterationsForStartupBenchmark: config.NUM_ITERATIONS_FOR_BENCHMARK_STARTUP,
     numIterationsForSizeBenchmark: config.NUM_ITERATIONS_FOR_BENCHMARK_SIZE,
     batchSize: 1,
-    resultsDirectory: `results/${vConfig.env.volume.toString().slice(0,2)}k`,
+    resultsDirectory: `results/${vConfig.env.volume.toString().slice(0, -3)}k`,
     tracesDirectory: "traces",
     allowThrottling: !args.nothrottling,
   };
@@ -436,14 +436,12 @@ async function main() {
   let matchesDirectoryArg = (directoryName: string) =>
     frameworkArgument.length === 0 || frameworkArgument.some((arg: string) => arg == directoryName);
   let frameworks = await initializeFrameworks(benchmarkOptions, matchesDirectoryArg);
-  runFrameworks = frameworks.filter(
-    (f) => f.keyed || config.BENCHMARK_RUNNER !== BenchmarkRunner.WEBDRIVER_AFTERFRAME
-  );
+  runFrameworks = frameworks.filter((f) => f.keyed || config.BENCHMARK_RUNNER !== BenchmarkRunner.WEBDRIVER_AFTERFRAME);
 
-  if (args.type=='keyed') {
+  if (args.type == "keyed") {
     runFrameworks = runFrameworks.filter((f) => f.keyed);
     console.log("run only keyed frameworks");
-  } else if (args.type=='non-keyed') {
+  } else if (args.type == "non-keyed") {
     runFrameworks = runFrameworks.filter((f) => !f.keyed);
     console.log("run only non-keyed frameworks");
   }
